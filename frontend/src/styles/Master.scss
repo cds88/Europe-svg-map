@@ -1,0 +1,233 @@
+$border-size: 2px;
+$border-color: white;//rgb(202,202,202);
+@font-face{
+    font-family: 'Quantum';
+    src:url("./quantum-4/Quantum.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 100;
+}
+@font-face{
+    font-family:'Aero';
+    src: url('./aero2/Aero.ttf') format("truetype");
+    font-style: normal;
+    font-weight: bold;
+    
+}
+@font-face{
+    font-family: "MoonGet";
+    src: url('./rainbow/Rainbow.ttf') format("truetype");
+ 
+
+}
+
+
+html, body{
+    //background: rgb(177, 175, 175);
+    background: url('../../assets/background.jpg');
+}
+
+.mallActive{
+    fill:"green";
+ 
+}
+path{
+    transition: 0.1s;
+}
+svg{
+    
+ 
+    box-sizing: border-box;
+    margin-top: 10px;
+    background: transparent;
+    border-bottom: $border-size solid $border-color;
+    border-left: $border-size solid $border-color;
+    border-right: $border-size solid $border-color;
+    border-top: $border-size solid $border-color;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: rgba(128,128,128, 0.7);
+    
+}
+.additional-content{
+    max-height: 100vh;
+    margin: 0;
+    
+    border: none;
+
+
+
+}
+#additional-content-wrapper{
+
+    font-family: 'Times New Roman', Times, serif;
+     font-size: 20px;
+    color: white;
+    font-weight: bold;
+ 
+    box-sizing: border-box;
+    margin-top: 10px;
+    overflow-y:scroll;
+    height:calc(100vh - 20px);
+    padding-top:20px;
+    padding-right:25px;
+    padding-left:10px;
+    background: rgba(128, 128, 128, 0.6);
+    border: $border-size solid $border-color;
+    border-radius: 5px;
+    & h1{
+        font-family: Aero;
+        margin-bottom: 20px;
+        text-align: center;
+        color:black;
+    }
+    & p{
+        color: black;
+    }
+}
+#main-page{
+    height: 100vh;
+}
+#second-page{
+    min-height:100vh;
+}
+
+.map-cont{
+    position: relative;
+    
+
+}
+.image-gallery-wrapper{
+    //background: yellow;
+    padding: 15px;
+    padding-right: 10px;   
+}
+.image-gallery{
+    
+    background: rgba(128,128,128, 0.7);
+    min-height: calc(100%);
+    border: 2px solid  rgb(202, 202, 202);
+    border-radius: 5px;
+    
+}
+.tooltip{
+    visibility: visible;
+    z-index: 10;
+}
+.tooltip text {
+  fill: white;
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+.tooltip rect {
+  fill: yellow;
+  stroke: white; 
+}
+// #svg-map{
+//     width: 70vw;
+    
+// }onClick={handleCLick}
+
+.modalic{
+    height: 500px;
+    width: 500px;
+    position: fixed;
+    background: black;
+
+}
+
+@keyframes fadein{
+    from{ opacity:0;}
+    to { opacity: 1;}
+}
+.modal-gallery{
+  
+  // all:unset;
+
+  animation: fadein 0.5s;
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translateY(-50%) translateX(-50%);
+  width:700px;
+  height: 600px;
+  background: black;
+  z-index:10;
+  border:5px solid white;
+  border-radius:5px;
+  transition: 1s;
+  
+ 
+}
+.page-scroll{
+ 
+  width:100%;
+  height:400px;
+  &>img{
+    object-fit: cover;
+    width:100%;
+    height:100%;
+  }
+}
+.gallery-control{
+  position: absolute;
+  bottom:0;
+  width:100px;
+  height:70px;
+ 
+  &:first-child{
+    left:0;
+  }
+  &:last-child{
+    right:0;
+  }
+
+}
+.modalTransition-enter {
+  opacity: 0;
+ 
+}
+.modalTransition-enter-active {
+  opacity: 1;
+ 
+  transition: opacity 300ms, transform 300ms;
+}
+.modalTransition-exit {
+  opacity: 1;
+}
+.modalTransition-exit-active {
+  opacity: 0;
+ 
+  transition: opacity 300ms, transform 300ms;
+}
+
+$timeout: 300ms;
+
+.fade-appear{
+    opacity:0;
+    z-index:1;
+}
+.fade-appear.fade-appear-active{
+    opacity:1;
+    transition: opacity $timeout linear;
+}
+
+.fade-enter{
+    opacity:0;
+    z-index:1;
+}
+.fade-enter.fade-enter-active{
+    opacity:1;
+    transition: opacity $timeout linear;
+}
+
+.fade-exit{
+    opacity:1;
+}
+.fade-exit.fade-exit-active{
+    opacity:0;
+    transition: opacity 150ms linear;
+}
+.fade-exit-done{
+    opacity:0;
+}
